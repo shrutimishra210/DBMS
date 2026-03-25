@@ -1,0 +1,228 @@
+SQL> create table Person(
+  2  PERSON_ID NUMBER(15),
+  3  FNAME VARCHAR(20),
+  4  LNAME VARCHAR(20),
+  5  CITY VARCHAR(20),
+  6  SALARY NUMBER(15));
+
+Table created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 1
+Enter value for fname: SNEHA
+Enter value for lname: SHETH
+Enter value for city: RAJKOT
+Enter value for salary: 10000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('1','SNEHA','SHETH','RAJKOT','10000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 2
+Enter value for fname: PUJA
+Enter value for lname: PARMAR
+Enter value for city: AHEMDABAD
+Enter value for salary: 2000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('2','PUJA','PARMAR','AHEMDABAD','2000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 3
+Enter value for fname: RIYA
+Enter value for lname: GAJAR
+Enter value for city: PUNE
+Enter value for salary: 8000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('3','RIYA','GAJAR','PUNE','8000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 4
+Enter value for fname: SANDIP
+Enter value for lname: JADEJA
+Enter value for city: PUNE
+Enter value for salary: 5000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('4','SANDIP','JADEJA','PUNE','5000')
+
+1 row created.
+
+SQL> INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY');
+Enter value for person_id: 5
+Enter value for fname: ALPESH
+Enter value for lname: PRAJAPATI
+Enter value for city: MUMBAI
+Enter value for salary: 20000
+old   1: INSERT INTO PERSON VALUES ('&PERSON_ID','&FNAME','&LNAME','&CITY','&SALARY')
+new   1: INSERT INTO PERSON VALUES ('5','ALPESH','PRAJAPATI','MUMBAI','20000')
+
+1 row created.
+
+SQL> SELECT* FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         1 SNEHA                SHETH                RAJKOT                     
+     10000                                                                      
+                                                                                
+         2 PUJA                 PARMAR               AHEMDABAD                  
+      2000                                                                      
+                                                                                
+         3 RIYA                 GAJAR                PUNE                       
+      8000                                                                      
+                                                                                
+
+ PERSON_ID FNAME                LNAME                CITY                       
+---------- -------------------- -------------------- --------------------       
+    SALARY                                                                      
+----------                                                                      
+         4 SANDIP               JADEJA               PUNE                       
+      5000                                                                      
+                                                                                
+         5 ALPESH               PRAJAPATI            MUMBAI                     
+     20000                                                                      
+SQL> set linesize 400
+SQL> select * from Person;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY                                                                                                                                                                                                                                                                                                                            
+---------- -------------------- -------------------- -------------------- ----------                                                                                                                                                                                                                                                                                                                            
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                            
+         2 PUJA                 PARMAR               AHEMDABAD                  2000                                                                                                                                                                                                                                                                                                                            
+         3 RIYA                 GAJAR                PUNE                       8000                                                                                                                                                                                                                                                                                                                            
+         4 SANDIP               JADEJA               PUNE                       5000                                                                                                                                                                                                                                                                                                                            
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                            
+
+SQL> select Person_id,fname from person;
+
+ PERSON_ID FNAME                                                                                                                                                                                                                                                                                                                                                                                                
+---------- --------------------                                                                                                                                                                                                                                                                                                                                                                                 
+         1 SNEHA                                                                                                                                                                                                                                                                                                                                                                                                
+         2 PUJA                                                                                                                                                                                                                                                                                                                                                                                                 
+         3 RIYA                                                                                                                                                                                                                                                                                                                                                                                                 
+         4 SANDIP                                                                                                                                                                                                                                                                                                                                                                                               
+         5 ALPESH                                                                                                                                                                                                                                                                                                                                                                                               
+
+SQL> select * from Person order by salary;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY                                                                                                                                                                                                                                                                                                                            
+---------- -------------------- -------------------- -------------------- ----------                                                                                                                                                                                                                                                                                                                            
+         2 PUJA                 PARMAR               AHEMDABAD                  2000                                                                                                                                                                                                                                                                                                                            
+         4 SANDIP               JADEJA               PUNE                       5000                                                                                                                                                                                                                                                                                                                            
+         3 RIYA                 GAJAR                PUNE                       8000                                                                                                                                                                                                                                                                                                                            
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                            
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                            
+
+SQL> select distinct city from Person;
+
+CITY                                                                                                                                                                                                                                                                                                                                                                                                            
+--------------------                                                                                                                                                                                                                                                                                                                                                                                            
+RAJKOT                                                                                                                                                                                                                                                                                                                                                                                                          
+AHEMDABAD                                                                                                                                                                                                                                                                                                                                                                                                       
+MUMBAI                                                                                                                                                                                                                                                                                                                                                                                                          
+PUNE                                                                                                                                                                                                                                                                                                                                                                                                            
+
+SQL> update Person set city='kolkata' where city='pune';
+
+0 rows updated.
+
+SQL> update Person set city='KOLKATA' where city='PUNE';
+
+2 rows updated.
+
+SQL> SELECT * FROM PERSON WHERE LNAME='PRAJAPATI';
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY                                                                                                                                                                                                                                                                                                                            
+---------- -------------------- -------------------- -------------------- ----------                                                                                                                                                                                                                                                                                                                            
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                            
+
+SQL> ALTER TABLE PERSON ADD STATE VARCHAR(10);
+
+Table altered.
+
+SQL> ALTER TABLE PERSON ADD BIRTHDATE DATE;
+
+Table altered.
+
+SQL> ALTER TABLE PERSON ADD PINCODE NUMBER(10);
+
+Table altered.
+
+SQL> SELECT * FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY STATE      BIRTHDATE    PINCODE                                                                                                                                                                                                                                                                                            
+---------- -------------------- -------------------- -------------------- ---------- ---------- --------- ----------                                                                                                                                                                                                                                                                                            
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                            
+         2 PUJA                 PARMAR               AHEMDABAD                  2000                                                                                                                                                                                                                                                                                                                            
+         3 RIYA                 GAJAR                KOLKATA                    8000                                                                                                                                                                                                                                                                                                                            
+         4 SANDIP               JADEJA               KOLKATA                    5000                                                                                                                                                                                                                                                                                                                            
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                            
+
+SQL> SET LINESIZE 600
+SQL> SELECT * FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY STATE      BIRTHDATE    PINCODE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+---------- -------------------- -------------------- -------------------- ---------- ---------- --------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         2 PUJA                 PARMAR               AHEMDABAD                  2000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         3 RIYA                 GAJAR                KOLKATA                    8000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         4 SANDIP               JADEJA               KOLKATA                    5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> SELECT * FROM PERSON WHERE SALARY>600;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY STATE      BIRTHDATE    PINCODE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+---------- -------------------- -------------------- -------------------- ---------- ---------- --------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         2 PUJA                 PARMAR               AHEMDABAD                  2000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         3 RIYA                 GAJAR                KOLKATA                    8000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         4 SANDIP               JADEJA               KOLKATA                    5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> SELECT * FROM PERSON WHERE SALARY>6000;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY STATE      BIRTHDATE    PINCODE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+---------- -------------------- -------------------- -------------------- ---------- ---------- --------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         3 RIYA                 GAJAR                KOLKATA                    8000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> DELETE FROM PERSON WHERE SALARY<3000;
+
+1 row deleted.
+
+SQL> SELECT * FROM PERSON;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY STATE      BIRTHDATE    PINCODE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+---------- -------------------- -------------------- -------------------- ---------- ---------- --------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         3 RIYA                 GAJAR                KOLKATA                    8000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         4 SANDIP               JADEJA               KOLKATA                    5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> rename person to person_master;
+
+Table renamed.
+
+SQL> SELECT * FROM PERSON_master;
+
+ PERSON_ID FNAME                LNAME                CITY                     SALARY STATE      BIRTHDATE    PINCODE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+---------- -------------------- -------------------- -------------------- ---------- ---------- --------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         1 SNEHA                SHETH                RAJKOT                    10000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         3 RIYA                 GAJAR                KOLKATA                    8000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         4 SANDIP               JADEJA               KOLKATA                    5000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+         5 ALPESH               PRAJAPATI            MUMBAI                    20000                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
+                                                                                
+
+SQL> SPOOL OFF;
