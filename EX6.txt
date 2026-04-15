@@ -1,0 +1,159 @@
+SQL> select * from deposit1;
+
+A_NO  CNAME      BNAME                    AMOUNT DDATE                          
+----- ---------- -------------------- ---------- ---------                      
+101   ANIL       ANDHERI                    7000 01-JAN-06                      
+102   SUNIL      VIRAR                      5000 15-JUL-06                      
+103   JAY        VILLEPARLE                 6500 12-MAR-06                      
+104   VIJAY      ANDHERI                    8000 17-SEP-06                      
+105   KEYUR      DADAR                      7500 19-NOV-06                      
+106   MAYUR      BORIVALI                   5500 21-DEC-06                      
+
+6 rows selected.
+ select * from employee;
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7369 SMITH           CLERK                 7902 17-DEC-00       8000      
+                   20                                                           
+                                                                                
+      7499 ALLEN           SALESMAN              7698 20-FEB-01      16000      
+       300         30                                                           
+                                                                                
+      7521 WARD            SALESMAN              7698 20-FEB-01      12500      
+       500         30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7566 JONES           MANAGER               7839 02-APR-01      29750      
+                   20                                                           
+                                                                                
+      7654 MARTIN          SALESMAN              7698 20-SEP-01      12500      
+      1400         30                                                           
+                                                                                
+      7698 BLAKE           MANAGER               7839 01-MAY-01      28500      
+                   30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7782 CLARK           MANAGER               7839 09-JUN-01      24500      
+                   10                                                           
+                                                                                
+      7788 SCOTT           ANALYST               7566 19-APR-07      30000      
+                   20                                                           
+                                                                                
+      7839 KING            PRESIDENT                  17-NOV-01      50000      
+                   10                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7844 TURNER          SALESMAN              7698 08-SEP-01      15000      
+                   10                                                           
+                                                                                
+      7876 ADAMS           CLERK                 7788 23-MAY-07      11000      
+                   30                                                           
+                                                                                
+      7900 JAMES           CLERK                 7698 03-DEC-01       9500      
+                   30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7902 FORD            ANALYST               7566 03-DEC-01      30000      
+                   20                                                           
+                                                                                
+
+13 rows selected.
+
+SQL> select * from job;
+
+JOB_ID     JOB_NAME                MIN_SAL    MAX_SAL                           
+---------- -------------------- ---------- ----------                           
+IT_PROG    PROGRAMMER                 4000      10000                           
+MK_MGR     MARKETING MANAGER          9000      15000                           
+FI_MGR     FINANCE MANAGER            8200      12000                           
+FI_ACC     ACCOUNT                    4200       9000                           
+LEC        LECTURER                   6000      17000                           
+COMP_OP    COMPUTER OPERATOR          1500       3000                           
+
+6 rows selected.
+
+SQL> SELECT A_NO, AMOUNT
+  2  FROM DEPOSIT1
+  3  WHERE DDATE BETWEEN '01-JAN-06' AND '25-JUL-06';
+
+A_NO      AMOUNT                                                                
+----- ----------                                                                
+101         7000                                                                
+102         5000                                                                
+103         6500   
+SQL> SELECT * FROM JOB WHERE min_sal > 4000;
+
+JOB_ID     JOB_NAME                MIN_SAL    MAX_SAL                           
+---------- -------------------- ---------- ----------                           
+MK_MGR     MARKETING MANAGER          9000      15000                           
+FI_MGR     FINANCE MANAGER            8200      12000                           
+FI_ACC     ACCOUNT                    4200       9000                           
+LEC        LECTURER                   6000      17000 
+
+SQL> select empname as name,sal from employee where deptno='20';
+
+NAME                   SAL                                                      
+--------------- ----------                                                      
+SMITH                 8000                                                      
+JONES                29750                                                      
+SCOTT                30000                                                      
+FORD                 30000
+SELECT *
+  2  FROM EMPLOYEE
+  3  WHERE empname LIKE 'A%';
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL
+---------- --------------- --------------- ---------- --------- ----------
+      COMM     DEPTNO
+---------- ----------
+      7499 ALLEN           SALESMAN              7698 20-FEB-01      16000
+       300         30
+
+      7876 ADAMS           CLERK                 7788 23-MAY-07      11000
+                   30
+SQL> SELECT * FROM EMPLOYEE WHERE empname LIKE '__a%';
+
+no rows selected
+
+
+ SELECT * FROM EMPLOYEE WHERE empname LIKE 'A_a%';
+
+no rows selected
+
+SELECT empno, empname, sal FROM EMPLOYEE WHERE empname LIKE 'Ani__';
+
+no rows selected
+
+SQL> SELECT cname FROM DEPOSIT1 ORDER BY cname;
+
+CNAME
+----------
+ANIL
+JAY
+KEYUR
+MAYUR
+SUNIL
+VIJAY
+
+6 rows selected.
+                                                      
+                                                               
