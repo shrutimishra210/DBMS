@@ -1,0 +1,356 @@
+SQL> show tables;
+SP2-0158: unknown SHOW option "tables"
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+DEPOSIT                                                                         
+BRANCH                                                                          
+BORROW                                                                          
+CUSTOMERS                                                                       
+EMPLOYEE                                                                        
+ITEM_DETAIL                                                                     
+CUSTOMER_DETAIL                                                                 
+JOB                                                                             
+EMPLOYEE1                                                                       
+DEPOSIT1                                                                        
+PERSON_MASTER                                                                   
+
+TABLE_NAME                                                                      
+------------------------------                                                  
+BRANCH_MASTER                                                                   
+
+12 rows selected.
+
+SQL> select * deposit;
+select * deposit
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from deposit;
+
+ACTNO CNAME           BNAME               AMOUNT ADATE                          
+----- --------------- --------------- ---------- ---------                      
+100   ANIL            VRCE                  1000 01-MAR-95                      
+101   SUNIL           AJNI                  5000 04-JAN-96                      
+102   MEHUL           KAROLBAGH             3500 17-NOV-95                      
+104   MADHURI         CHANDI                1200 17-DEC-95                      
+105   PRAMOD          M G ROAD              3000 27-MAR-96                      
+106   SANDIP          ANDHERI               2000 31-MAR-96                      
+107   SHIVANI         VIRAR                 1000 05-SEP-95                      
+108   KRANTI          NEHRU PLACE           5000 02-JUL-95                      
+109   MINU            POWAI                 7000 10-AUG-95                      
+
+9 rows selected.
+
+SQL> select sum(amount) from deposit;
+
+SUM(AMOUNT)                                                                     
+-----------                                                                     
+      28700                                                                     
+
+SQL> select * branch;
+select * branch
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from  branch;
+
+BNAME           CITY                                                            
+--------------- ---------------                                                 
+VRCE            NAGPUR                                                          
+AJNI            NAGPUR                                                          
+KAROLBAGH       DELHI                                                           
+CHANDI          DELHI                                                           
+DHARAMPETH      NAGPUR                                                          
+M G ROAD        BANGLORE                                                        
+ANDHERI         BOMBAY                                                          
+VIRAR           BOMBAY                                                          
+NEHRU PLACE     DELHI                                                           
+POWAI           BOMBAY                                                          
+
+10 rows selected.
+
+SQL> select * from borrow;
+
+LOANN CNAME           BNAME               AMOUNT                                
+----- --------------- --------------- ----------                                
+201   ANIL            VRCE                  1000                                
+206   MEHUL           AJNI                  5000                                
+311   SUNIL           DHARAMPETH            3000                                
+321   MADHURI         ANDHERI               2000                                
+375   PRAMOD          VIRAR                 8000                                
+481   KRANTI          NEHRU PLACE           3000                                
+201   ANIL            VRCE                  1000                                
+201   MEHUL           AJNI                  5000                                
+311   SUNIL           DHARAMPETH            3000                                
+321   MADHURI         ANDHERI               2000                                
+
+10 rows selected.
+
+SQL> select sum(amount) from deposit where bname='KAROLBAGH';
+
+SUM(AMOUNT)                                                                     
+-----------                                                                     
+       3500                                                                     
+
+SQL> select max(amount) from borrow where bname='VRCE';
+
+MAX(AMOUNT)                                                                     
+-----------                                                                     
+       1000                                                                     
+
+SQL> SELECT COUNT(*) FROM CUSTOMERS;
+
+  COUNT(*)                                                                      
+----------                                                                      
+         9                                                                      
+
+SQL> SELECT COUNT(CITY) FROM CUSTOMERS;
+
+COUNT(CITY)                                                                     
+-----------                                                                     
+          9                                                                     
+
+SQL> CREATE TABLE SUPPLIER AS(SELECT * FROM EMPLOYEE);
+
+Table created.
+
+SQL> SELECT * FROM SUPPLER;
+SELECT * FROM SUPPLER
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SELECT * FROM SUPPLIER;
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7369 SMITH           CLERK                 7902 17-DEC-00       8000      
+                   20                                                           
+                                                                                
+      7499 ALLEN           SALESMAN              7698 20-FEB-01      16000      
+       300         30                                                           
+                                                                                
+      7521 WARD            SALESMAN              7698 20-FEB-01      12500      
+       500         30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7566 JONES           MANAGER               7839 02-APR-01      29750      
+                   20                                                           
+                                                                                
+      7654 MARTIN          SALESMAN              7698 20-SEP-01      12500      
+      1400         30                                                           
+                                                                                
+      7698 BLAKE           MANAGER               7839 01-MAY-01      28500      
+                   30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7782 CLARK           MANAGER               7839 09-JUN-01      24500      
+                   10                                                           
+                                                                                
+      7788 SCOTT           ANALYST               7566 19-APR-07      30000      
+                   20                                                           
+                                                                                
+      7839 KING            PRESIDENT                  17-NOV-01      50000      
+                   10                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7844 TURNER          SALESMAN              7698 08-SEP-01      15000      
+                   10                                                           
+                                                                                
+      7876 ADAMS           CLERK                 7788 23-MAY-07      11000      
+                   30                                                           
+                                                                                
+      7900 JAMES           CLERK                 7698 03-DEC-01       9500      
+                   30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7902 FORD            ANALYST               7566 03-DEC-01      30000      
+                   20                                                           
+                                                                                
+
+13 rows selected.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7369 SMITH           CLERK                 7902 17-DEC-00       8000      
+                   20                                                           
+                                                                                
+      7499 ALLEN           SALESMAN              7698 20-FEB-01      16000      
+       300         30                                                           
+                                                                                
+      7521 WARD            SALESMAN              7698 20-FEB-01      12500      
+       500         30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7566 JONES           MANAGER               7839 02-APR-01      29750      
+                   20                                                           
+                                                                                
+      7654 MARTIN          SALESMAN              7698 20-SEP-01      12500      
+      1400         30                                                           
+                                                                                
+      7698 BLAKE           MANAGER               7839 01-MAY-01      28500      
+                   30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7782 CLARK           MANAGER               7839 09-JUN-01      24500      
+                   10                                                           
+                                                                                
+      7788 SCOTT           ANALYST               7566 19-APR-07      30000      
+                   20                                                           
+                                                                                
+      7839 KING            PRESIDENT                  17-NOV-01      50000      
+                   10                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7844 TURNER          SALESMAN              7698 08-SEP-01      15000      
+                   10                                                           
+                                                                                
+      7876 ADAMS           CLERK                 7788 23-MAY-07      11000      
+                   30                                                           
+                                                                                
+      7900 JAMES           CLERK                 7698 03-DEC-01       9500      
+                   30                                                           
+                                                                                
+
+     EMPNO EMPNAME         JOB                    MGR HIREDATE         SAL      
+---------- --------------- --------------- ---------- --------- ----------      
+      COMM     DEPTNO                                                           
+---------- ----------                                                           
+      7902 FORD            ANALYST               7566 03-DEC-01      30000      
+                   20                                                           
+                                                                                
+
+13 rows selected.
+
+SQL> CREATE TABLE SUP1 AS(SELECT EMPNO,EMPNAME FROM EMPLOYEE);
+
+Table created.
+
+SQL> CREATE TABLE SUP2 AS(SELECT EMPNO,EMPNAME FROM EMPLOYEE WHERE 1=2);
+
+Table created.
+
+SQL> SELECT * FROM SUP1;
+
+     EMPNO EMPNAME                                                              
+---------- ---------------                                                      
+      7369 SMITH                                                                
+      7499 ALLEN                                                                
+      7521 WARD                                                                 
+      7566 JONES                                                                
+      7654 MARTIN                                                               
+      7698 BLAKE                                                                
+      7782 CLARK                                                                
+      7788 SCOTT                                                                
+      7839 KING                                                                 
+      7844 TURNER                                                               
+      7876 ADAMS                                                                
+
+     EMPNO EMPNAME                                                              
+---------- ---------------                                                      
+      7900 JAMES                                                                
+      7902 FORD                                                                 
+
+13 rows selected.
+
+SQL> SELECT * FROM SUP2;
+
+no rows selected
+
+SQL> INSERT INTO sup2
+  2  SELECT * FROM employee
+  3  WHERE emp_name LIKE '_n___';
+WHERE emp_name LIKE '_n___'
+      *
+ERROR at line 3:
+ORA-00904: "EMP_NAME": invalid identifier 
+
+
+SQL> INSERT INTO sup2
+  2  SELECT * FROM employee
+  3  WHERE empname LIKE '_n___';
+INSERT INTO sup2
+            *
+ERROR at line 1:
+ORA-00913: too many values 
+
+
+SQL> TRUNCATE SUP1;
+TRUNCATE SUP1
+            *
+ERROR at line 1:
+ORA-03290: Invalid truncate command - missing CLUSTER or TABLE keyword 
+
+
+SQL> TRUNCATE TABLE SUP1;
+
+Table truncated.
+
+SQL> DELETE FROM SUPPLIER WHERE EMPNO='103';
+
+0 rows deleted.
+
+SQL> RENAME SUP2 TO SUPLIER_2;
+
+Table renamed.
+
+SQL> DROP Table sup1;
+
+Table dropped.
+
+SQL> update supplier set deptno=10 where empname like '_m%';
+
+0 rows updated.
+
+SQL> update supplier set deptno=10 where empname like '_M%';
+
+1 row updated.
+
+SQL> update supplier set EMPNAME='AAYUSHI' where empno='103';
+
+0 rows updated.
+
+SQL>  insert into suplier_2 select * from employee where substr(empname,2,1)='N' and length(empname)=5;
+
+SQL> spool off
